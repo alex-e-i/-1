@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Персональный сайт">
-    <title>Главная страница</title>
+    <meta name="description" content="Пример страницы с контактной информацией">
+    <title>Контакты</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -37,6 +37,20 @@
             padding: 20px;
             text-align: center;
         }
+        .contact-info {
+            background-color: white;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+        .contact-info h2 {
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin: 10px 0;
+        }
         footer {
             background-color: #333;
             color: white;
@@ -50,21 +64,22 @@
 </head>
 <body>
     <header>
-        <h1>Добро пожаловать на сайт Алексея Сафронова</h1>
+        <h1>Контакты</h1>
     </header>
     <nav>
-        <a href="#home">Главная</a>
+        <a href="index.html">Главная</a>
         <a href="events.html">События</a>
-        <a href="#blog.html">Блог</a>
-        <a href="#contact.html">Контакты</a>
+        <a href="blog.html">Блог</a>
+        <a href="contact.html">Контакты</a>
     </nav>
     <main>
-        <h2>Обо мне</h2>
-        <p>Кандидат педагогических наук.</p> 
-    </p>Профессиональная сфера - физическая культура и спорт, педагогика, психология. </p>
-        <h2>Образование</h2>
-        <p>Коломенский государственный педагогический институт.</p> 
-    </p>Российский государственный социально-гуманитарный университет.</p>
+        <div class="contact-info">
+            <h2>Свяжитесь с нами</h2>
+            <p><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 123</p>
+            <p><strong>Телефон:</strong> +7 (123) 456-78-90</p>
+            <p><strong>Email:</strong> info@example.com</p>
+            <p><strong>Режим работы:</strong> Пн-Пт, 9:00 - 18:00</p>
+        </div>
     </main>
     <footer>
         <p>&copy; 2025 SafronovAI. Все права защищены.</p>
