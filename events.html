@@ -50,7 +50,7 @@
 </head>
 <body>
     <header>
-        <h1>События</h1>
+        <h2> <i>События</i></h2>
     </header>
     <nav>
         <a href="index.html">Главная</a>
@@ -63,10 +63,30 @@
         <i>Форум профессионалов педагогического мастерства</i>
         <h2>Прошедшие события</h2>
         <i>Конференция "Психология спорта"</i> 
-        <h2>Перспективы</h2>
-        <ul>
-    <i>Личностный рост</i>
-    <i>Персональный маршрут</i>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/ru.min.js"></script>
+<div id="calendar"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const calendarEl = document.getElementById('calendar');
+        const calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            locale: 'ru',
+            events: [
+                {
+                    title: 'Конференция',
+                    start: '2025-02-05'
+                },
+                {
+                    title: 'Мастер-класс',
+                    start: '2025-02-20'
+                }
+            ]
+        });
+        calendar.render();
+    });
+</script>
         </ul>
     </main>
     <footer>
