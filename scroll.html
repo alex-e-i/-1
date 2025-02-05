@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лента</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .item {
+            border-bottom: 1px solid #ddd;
+            padding: 20px 0;
+        }
+        .loading {
+            text-align: center;
+            padding: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="content" id="content">
+        <a href="index.html">Главная</a>
+        <!-- Контент будет добавляться сюда -->
+    </div>
+    <div class="loading" id="loading">Загрузка...</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
