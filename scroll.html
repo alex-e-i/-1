@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лента</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .item {
-            border-bottom: 1px solid #ddd;
-            padding: 20px 0;
-        }
-        .loading {
-            text-align: center;
-            padding: 20px;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лента</title>
+  <style>
+    .feed-item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #ecf7ca;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .feed-item h2 {
+      margin: 0;
+      font-size: 1.5em;
+    }
+    .feed-item p {
+      margin: 5px 0 0;
+      color: #555;
+    }
+  </style>
+  <a href="index.html"><button id="back-button" class="back-button">Главная</button></a>
 </head>
 <body>
-    <div class="content" id="content">
-        <a href="index.html">Главная</a>
-        <!-- Контент будет добавляться сюда -->
-    </div>
-    <div class="loading" id="loading">Загрузка...</div>
+    <div id="feed-container">
+    <!-- Сюда будут добавлены заголовки -->
+  </div>
+  
+  <script>
+    // Функция для загрузки JSON-файла
+    async function loadFeed() {
+      try {
+        const response = await fetch('feed.json'); // Загружаем JSON-файл
+        const data = await response.json(); // Парсим JSON
+        displayFeed(data.feed); // Отображаем ленту
+      } catch (error) {
+        console.error('Ошибка загрузки ленты:', error);
+      }
+    }
 
-    <script src="script.js"></script>
+    // Функция для отображения ленты
+    function displayFeed(feed) {
+      const feedContainer = document.getElementById('feed-container');
+
+      // Очищаем контейнер перед добавлением новых элементов
+      feedContainer.innerHTML = '';
+
+      // Проходим по каждому элементу в ленте
+      feed.forEach(item => {
+        const feedItem = document.createElement('div');
+        feedItem.classList.add('feed-item');
+
+        // Создаем ссылку для заголовка
+        const titleLink = document.createElement('a');
+        titleLink.href = item.url; // Используем URL из JSON
+        titleLink.textContent = item.title;
+
+        const title = document.createElement('h2');
+        title.appendChild(titleLink); // Добавляем ссылку в заголовок
+
+        const description = document.createElement('p');
+        description.textContent = item.description;
+
+        feedItem.appendChild(title);
+        feedItem.appendChild(description);
+
+        feedContainer.appendChild(feedItem);
+      });
+    }
+
+    // Загружаем ленту при загрузке страницы
+    window.onload = loadFeed;
+  </script>
 </body>
 </html>
